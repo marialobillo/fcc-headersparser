@@ -26,10 +26,10 @@ app.get('/api/hello', function (req, res) {
 
 // API endpoint
 app.get('/api/whoami', (req, res) => {
-  const ipaddress = req.ip;
+  const ipaddress = req.socket.remoteAddress;
   const language = req.headers['accept-language'];
   const software = req.headers['user-agent'];
-  res.json({ ipaddress, language, software });
+  res.status(200).json({ ipaddress, language, software });
 });
 
 
